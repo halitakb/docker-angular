@@ -22,7 +22,7 @@ RUN npm install
 RUN npm install -g @angular/cli@1.7.1 --unsafe
 
 # add app
-COPY . /usr/src/app
+COPY . /home/angularapp
 
 # start app
 CMD ng serve --host 0.0.0.0
