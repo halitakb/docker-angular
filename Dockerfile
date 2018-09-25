@@ -7,14 +7,17 @@ RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable 
 RUN apt-get update && apt-get install -yq google-chrome-stable
 
 # set working directory
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
+RUN cd  /home
+RUN mkdir angularapp
+WORKDIR /home/angularapp
+RUN cd  /home
+WORKDIR /home/angularapp
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+ENV PATH /home/angularapp/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /usr/src/app/package.json
+COPY package.json /home/angularapp/package.json
 RUN npm install
 RUN npm install -g @angular/cli@1.7.1 --unsafe
 
