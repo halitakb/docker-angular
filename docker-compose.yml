@@ -8,8 +8,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - '.:/home/angularapp'
+      - '/home/angularapp/node_modules'
     ports:
       - '4200:4200'
     environment:
